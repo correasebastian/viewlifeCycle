@@ -4,10 +4,16 @@ i created a directive to show the view lifecycle
 
 the directive is : lifeCycle
 
-you can put in the '<ion-view>' element:
+you can put in the element 
+```sh
+<ion-view>
+``` 
 
 example 
-'<ion-view life-cycle view-title="Account" >'
+```sh
+<ion-view life-cycle view-title="Account" >
+```
+
 
 im using the view-title="xxxx" to identify the view;
 
