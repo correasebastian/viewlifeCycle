@@ -82,37 +82,37 @@ angular.module('starter.controllers', [])
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
     var _str = 'ChatDetailCtrl'
     $scope.chat = Chats.get($stateParams.chatId);
-   /* $scope.$on('$ionicView.loaded', function() {
-        console.log(_str + ' loaded', $scope, $scope.$id)
-    });
-    $scope.$on('$ionicView.beforeEnter', function() {
-        // Anything you can think of
-        console.log(_str + ' BeforeEnter', $scope, $scope.$id)
-    });
-    $scope.$on('$ionicView.enter', function() {
-        console.log(_str + ' enter', $scope, $scope.$id)
-            // Anything you can think of
-    });
-    $scope.$on('$ionicView.afterEnter', function() {
-        console.log(_str + ' afterEnter', $scope, $scope.$id)
-    });
+    /* $scope.$on('$ionicView.loaded', function() {
+         console.log(_str + ' loaded', $scope, $scope.$id)
+     });
+     $scope.$on('$ionicView.beforeEnter', function() {
+         // Anything you can think of
+         console.log(_str + ' BeforeEnter', $scope, $scope.$id)
+     });
+     $scope.$on('$ionicView.enter', function() {
+         console.log(_str + ' enter', $scope, $scope.$id)
+             // Anything you can think of
+     });
+     $scope.$on('$ionicView.afterEnter', function() {
+         console.log(_str + ' afterEnter', $scope, $scope.$id)
+     });
 
-    $scope.$on('$ionicView.beforeLeave', function() {
-        console.log(_str + ' beforeLeave', $scope, $scope.$id)
-            // Anything you can think of
-    });
-    $scope.$on('$ionicView.leave', function() {
-        console.log(_str + ' Leave', $scope, $scope.$id)
-    });
+     $scope.$on('$ionicView.beforeLeave', function() {
+         console.log(_str + ' beforeLeave', $scope, $scope.$id)
+             // Anything you can think of
+     });
+     $scope.$on('$ionicView.leave', function() {
+         console.log(_str + ' Leave', $scope, $scope.$id)
+     });
 
-    $scope.$on('$ionicView.afterLeave', function() {
-        console.log(_str + ' afterLeave', $scope, $scope.$id)
+     $scope.$on('$ionicView.afterLeave', function() {
+         console.log(_str + ' afterLeave', $scope, $scope.$id)
 
-    });
-    $scope.$on('$ionicView.unloaded', function() {
-        console.log(_str + 'unloaded', $scope, $scope.$id)
-            // Anything you can think of
-    });*/
+     });
+     $scope.$on('$ionicView.unloaded', function() {
+         console.log(_str + 'unloaded', $scope, $scope.$id)
+             // Anything you can think of
+     });*/
 })
 
 .controller('AccountCtrl', function() {
@@ -121,4 +121,34 @@ angular.module('starter.controllers', [])
     vm.settings = {
         enableFriends: true
     };
+    var _41 = 41;
+    vm.setName = setName;
+    vm.add41 = add41;
+
+
+    activate()
+
+    function setName() {
+        vm.name = 'pepito';
+    }
+
+    function activate() {
+        var arrayn = [];
+        for (var i = 0; i < 40; i++) {
+            var obj = {
+                name: i,
+            }
+            arrayn.push(obj)
+        }
+
+        vm.numbers = arrayn;
+    }
+
+    function add41() {
+        var obj = {
+            name: _41,
+        }
+        _41++;
+        vm.numbers.unshift(obj)
+    }
 });

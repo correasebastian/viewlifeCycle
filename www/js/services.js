@@ -53,10 +53,10 @@ angular.module('starter.services', [])
 angular.module('starter.directives', [])
     .directive('lifeCycle', lifeCycle);
 
-lifeCycle.$inject = ['$stateParams'];
+lifeCycle.$inject = ['$stateParams', '$timeout'];
 
 /* @ngInject */
-function lifeCycle($stateParams) {
+function lifeCycle($stateParams, $timeout) {
     // Usage:
     //
     // Creates:
@@ -70,6 +70,7 @@ function lifeCycle($stateParams) {
     return directive;
 
     function link(scope, element, attrs) {
+        var idx = 0;
         console.time('loaded')
         console.time('beforeEnter')
         console.time('enter')
@@ -88,8 +89,12 @@ function lifeCycle($stateParams) {
             // Anything you can think of
             console.log(_nameView + ' BeforeEnter', scope, scope.$id)
             console.timeEnd('beforeEnter')
+            console.log(idx);
+            idx++;
             if (_nameView === 'Account') {
+                $timeout(scope.vm.setName, 2000)
                 scope.vm.settings.name = _nameView;
+                scope.vm.add41();
             }
         });
         scope.$on('$ionicView.enter', function() {

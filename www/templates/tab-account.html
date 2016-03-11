@@ -1,4 +1,4 @@
-<ion-view life-cycle view-title="Account">
+<ion-view life-cycle view-title="Account" cache-view="true">
     <ion-content>
         <ion-list>
             <ion-toggle ng-model="vm.settings.enableFriends">
@@ -8,5 +8,13 @@
         <ion-item>
             {{vm.settings.name}}
         </ion-item>
+        <ion-item>
+            {{vm.name}}
+        </ion-item>
+        <ion-list>
+            <ion-item ng-repeat="number in vm.numbers">
+                {{number.name}}
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
