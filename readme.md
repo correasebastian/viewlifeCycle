@@ -15,6 +15,10 @@ when you navigate from and to that view you can see the console;
 
 also you can perform some methods 
 
+<<<<<<< HEAD
 you can see when you ente on account tabs, i add a number on top of the list even if the view is cached
 
 thats is really usefull
+=======
+you can see when you ente on account tabs, i add a number on top of the list 
+>>>>>>> origin/master
