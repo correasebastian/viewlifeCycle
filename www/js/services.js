@@ -53,10 +53,10 @@ angular.module('starter.services', [])
 angular.module('starter.directives', [])
     .directive('lifeCycle', lifeCycle);
 
-lifeCycle.$inject = ['$stateParams', '$timeout'];
+lifeCycle.$inject = ['$stateParams', '$timeout', '$ionicHistory'];
 
 /* @ngInject */
-function lifeCycle($stateParams, $timeout) {
+function lifeCycle($stateParams, $timeout, $ionicHistory) {
     // Usage:
     //
     // Creates:
@@ -83,11 +83,14 @@ function lifeCycle($stateParams, $timeout) {
         console.log('lifeCycle directive', scope, scope.$id, _nameView, $stateParams);
         scope.$on('$ionicView.loaded', function() {
             console.log(_nameView + ' loaded', scope, scope.$id);
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
             console.timeEnd('loaded');
         });
         scope.$on('$ionicView.beforeEnter', function() {
             // Anything you can think of
             console.log(_nameView + ' BeforeEnter', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('beforeEnter')
             console.log(idx);
             idx++;
@@ -99,34 +102,46 @@ function lifeCycle($stateParams, $timeout) {
         });
         scope.$on('$ionicView.enter', function() {
             console.log(_nameView + ' enter', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('enter')
                 // Anything you can think of
         });
         scope.$on('$ionicView.afterEnter', function() {
             console.log(_nameView + ' afterEnter', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('afterEnter');
         });
 
         scope.$on('$ionicView.beforeLeave', function() {
             console.log(_nameView + ' beforeLeave', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('beforeLeave')
 
             // Anything you can think of
         });
         scope.$on('$ionicView.leave', function() {
             console.log(_nameView + ' Leave', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('leave')
 
         });
 
         scope.$on('$ionicView.afterLeave', function() {
             console.log(_nameView + ' afterLeave', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('afterLeave')
 
 
         });
         scope.$on('$ionicView.unloaded', function() {
             console.log(_nameView + 'unloaded', scope, scope.$id)
+            console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
+
             console.timeEnd('unloaded')
                 // Anything you can think of
         });

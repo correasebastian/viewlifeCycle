@@ -2,44 +2,60 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
 
-    /* $scope.$on('$ionicView.loaded', function() {
-         console.log(' DashCtrl loaded', $scope, $scope.$id)
-     });
 
-     $scope.$on('$ionicView.beforeEnter', function() {
-         // Anything you can think of
-         console.log(' DashCtrl BeforeEnter', $scope, $scope.$id)
-     });
-     $scope.$on('$ionicView.enter', function() {
-         // Anything you can think of
-         console.log(' DashCtrl enter', $scope, $scope.$id)
+        console.info('DashCtrl');
+        /* $scope.$on('$ionicView.loaded', function() {
+             console.log(' DashCtrl loaded', $scope, $scope.$id)
+         });
 
-     });
-     $scope.$on('$ionicView.afterEnter', function() {
-         console.log(' DashCtrl afterEnter', $scope, $scope.$id)
-     });
-
-     $scope.$on('$ionicView.beforeLeave', function() {
-         console.log(' DashCtrl beforeLeave', $scope, $scope.$id)
+         $scope.$on('$ionicView.beforeEnter', function() {
              // Anything you can think of
-     });
-
-     $scope.$on('$ionicView.leave', function() {
-         console.log(' DashCtrl Leave', $scope, $scope.$id)
-     });
-
-     $scope.$on('$ionicView.afterLeave', function() {
-         console.log(' DashCtrl afterLeave', $scope, $scope.$id)
-
-     });
-     $scope.$on('$ionicView.unloaded', function() {
-         console.log(' DashCtrl unloaded', $scope, $scope.$id)
+             console.log(' DashCtrl BeforeEnter', $scope, $scope.$id)
+         });
+         $scope.$on('$ionicView.enter', function() {
              // Anything you can think of
-     });*/
+             console.log(' DashCtrl enter', $scope, $scope.$id)
 
-})
+         });
+         $scope.$on('$ionicView.afterEnter', function() {
+             console.log(' DashCtrl afterEnter', $scope, $scope.$id)
+         });
+
+         $scope.$on('$ionicView.beforeLeave', function() {
+             console.log(' DashCtrl beforeLeave', $scope, $scope.$id)
+                 // Anything you can think of
+         });
+
+         $scope.$on('$ionicView.leave', function() {
+             console.log(' DashCtrl Leave', $scope, $scope.$id)
+         });
+
+         $scope.$on('$ionicView.afterLeave', function() {
+             console.log(' DashCtrl afterLeave', $scope, $scope.$id)
+
+         });
+         $scope.$on('$ionicView.unloaded', function() {
+             console.log(' DashCtrl unloaded', $scope, $scope.$id)
+                 // Anything you can think of
+         });*/
+
+    })
+    .controller('ExtraCtrl', function($scope, $ionicNavBarDelegate, $ionicHistory) {
+
+
+        $ionicNavBarDelegate.showBackButton(true);
+
+        $scope.back = function() {
+            debugger;
+            $ionicHistory.goBack();
+        }
+
+
+    })
 
 .controller('ChatsCtrl', function($scope, Chats) {
+
+    console.info('ChatsCtrl');
     /*$scope.$on('$ionicView.loaded', function() {
         console.log(' ChatsCtrl loaded', $scope, $scope.$id)
     });
