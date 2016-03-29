@@ -65,11 +65,15 @@ function lifeCycle($stateParams, $timeout, $ionicHistory) {
 
         link: link,
         restrict: 'A',
-        scope: false
+        scope: false,
+        controller: Controller
+            // scope: {}
+
     };
     return directive;
 
-    function link(scope, element, attrs) {
+    function link(scope, element, attrs, ctrl) {
+        console.info('directiveController', ctrl)
         var idx = 0;
         console.time('loaded')
         console.time('beforeEnter')
@@ -89,6 +93,7 @@ function lifeCycle($stateParams, $timeout, $ionicHistory) {
         scope.$on('$ionicView.beforeEnter', function() {
             // Anything you can think of
             console.log(_nameView + ' BeforeEnter', scope, scope.$id)
+            console.info('directiveController', ctrl)
             console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
 
             console.timeEnd('beforeEnter')
@@ -102,6 +107,7 @@ function lifeCycle($stateParams, $timeout, $ionicHistory) {
         });
         scope.$on('$ionicView.enter', function() {
             console.log(_nameView + ' enter', scope, scope.$id)
+            console.info('directiveController', ctrl)
             console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
 
             console.timeEnd('enter')
@@ -109,6 +115,7 @@ function lifeCycle($stateParams, $timeout, $ionicHistory) {
         });
         scope.$on('$ionicView.afterEnter', function() {
             console.log(_nameView + ' afterEnter', scope, scope.$id)
+            console.info('directiveController', ctrl)
             console.log('$ionicHistory currentState ' + $ionicHistory.currentStateName())
 
             console.timeEnd('afterEnter');
@@ -145,5 +152,10 @@ function lifeCycle($stateParams, $timeout, $ionicHistory) {
             console.timeEnd('unloaded')
                 // Anything you can think of
         });
+    }
+
+    function Controller() {
+        vm = this;
+        vm.test = '0elo'
     }
 }
